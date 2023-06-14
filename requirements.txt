@@ -1,0 +1,16 @@
+Flask==1.1.2
+Flask-Mail==0.9.1
+fuzzywuzzy==0.18.0
+mysql_connector_repackaged==0.3.1
+Requests==2.31.0
+steamship==2.17.0
+Smtplib==8.8.4
+pyOpenSSl==21.0.0
+email.message
+email.utils
+Datetime
+Unittest
+Time
+Abc
+Threading
+Faker

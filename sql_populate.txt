@@ -1,0 +1,43 @@
+CREATE DATABASE thirst_trap;
+USE thirst_trap;
+
+CREATE TABLE user_credentials (
+	user_id INT AUTO_INCREMENT,
+    username VARCHAR(25),
+    email VARCHAR(25),
+    PRIMARY KEY (user_id)
+);
+
+CREATE TABLE user_plants (
+	plant_id INT AUTO_INCREMENT,
+    plant_type VARCHAR(25),
+    plant_nickname VARCHAR(25),
+    user_id INT,
+	watering_frequency INT,
+    date_last_watered VARCHAR(25),
+    PRIMARY KEY (plant_id),
+    FOREIGN KEY (user_id) REFERENCES user_credentials(user_id)
+);
+
+INSERT INTO user_credentials (user_id, username, email)
+Values
+	(1, 'lezlee_lowpez', 'lopez.lesley96@yahoo.com'),
+    (2, 'valpal', 'valerieplopez13@gmail.com'),
+    (3, 'elibug', 'elias.ortega10@yahoo.com'),
+    (4, 'plant_guy', 'plantguy123@gmail.com'),
+    (5, 'disney_girl', 'disneyrocks@yahoo.com'),
+    (6, 'plantLover567', 'randomemail@gmail.com');
+
+
+INSERT INTO user_plants (plant_id, plant_type, plant_nickname, user_id, watering_frequency, date_last_watered)
+Values
+	(1, 'Mocha Rose Big Leaf Maple', 'Rosey', 2, 7, '01-29-2023'),
+    (2, 'ginger lily', 'Tom', 1, 2, '04-01-2023'),
+    (3, 'orchid', 'Pat', 3, 7, '05-09-2023'),
+    (4, 'Monkey Puzzle Tree', 'Donkey Kong', 4, 7, '05-17-2023'),
+    (5, 'Strawberry Tree', 'Fresa', 5, 28, '05-14-2023'),
+    (6, 'Hearts of Gold Redbud', 'Goldie', 6, 7, '05-13-2023');
+
+
+SELECT * FROM user_credentials;
+SELECT * FROM user_plants;

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ThirstTrap</title>
+    <style>
+        body {
+            background: linear-gradient(rgb(209, 235, 219, 0.9), rgb(209, 235, 219, 0.9)), url("/static/thirsty.jpeg");
+            background-repeat: no-repeat;
+            background-position: top left;
+            background-attachment: fixed;
+            background-size: cover;
+            backdrop-filter: blur(5px);
+            background-color: rgb(9, 121, 105);
+            color: rgb(175, 225, 175);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            height: 100vh;
+            margin: 0;
+            position: relative;
+        }
+
+        body::after {
+            content: "";
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.2);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        a {
+            color: darkgreen;
+            text-decoration: none;
+        }
+
+        .logo-container {
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 50px;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 50px;
+        }
+
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+            padding: 0 10%;
+            position: relative;
+        }
+
+        .navbar__links {
+            display: inline-block;
+            margin: 0 10px;
+            font-size: 24px;
+            margin-bottom: 5px;
+            color: darkgreen;
+            text-decoration: none;
+            font-style: italic;
+            text-align: center;
+            max-width: 50%;
+            padding-right: 100px;
+        }
+
+        .search-container {
+            margin-top: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            max-width: 50%;
+        }
+
+        .form-container {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .bottom-text {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .vertical-line {
+            position: absolute;
+            width: 2px;
+            height: 100%;
+            left: 50%;
+            top: 5%;
+            transform: translateX(-50%);
+            background-color: darkgreen;
+        }
+        .added-text {
+            color: green;
+            font-style: italic;
+            margin-top: -20px;
+            font-size: 30px;
+            font-style: bold;
+            text-align: center;
+        }
+        .new-here-text {
+            margin-top: -30px;
+}
+    </style>
+</head>
+<body>
+<header>
+    <div class="logo-container">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Plant Image" style="max-width: 50%; height: auto;">
+    </div>
+</header>
+
+<div class="content">
+    <div class="vertical-line"></div>
+    <div class="navbar__links">
+        <p class="added-text">New here or want your search to be saved?</p>
+        <a href="home.html" style="font-size: 31px; margin-top: 30px;">
+            Click here to create <br> an account or log in
+        </a>
+    </div>
+    <div class="search-container">
+        <p class="added-text">Don't know how often to water your plant?</p>
+        <div class="form-container">
+            <form action="/result" method="post">
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                    <label for="plant_name" style="margin-bottom: 10px; color: darkgreen;font-size: 30px; margin-top: 30px;"><em>Type your plant name here:</em></label>
+                    <input type="text" id="plant_name" name="plant_name" required>
+                    <input type="submit" value="Search">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<footer class="bottom-text">
+    <p style="text-align:center; font-size:60px; color:darkgreen;"><em>Plant Watering Made Easy</em></p>
+</footer>
+</body>
+</html>
